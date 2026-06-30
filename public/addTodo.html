@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       async function addTodo(){
+            const todo = document.getElementById("todo").value;
+            try{
+                const res = await axios.post("http://localhost:3001/addTodo",{
+                 todo:todo,
+                 done:true
+                })
+                alert("todo added successfully!!");
+
+            }
+            catch(err)
+            {
+                alert("error in adding todo credentials!");
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Add your todo</h1>
+    <h3>title</h3>
+    <input type="text" name="" id="todo" placeholder="Add your todo">
+    <button id="submit" onclick="addTodo">Add todo</button>
+</body>
+</html>

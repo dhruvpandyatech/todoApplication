@@ -1,0 +1,103 @@
+<!-- signup page!! -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        async function signUp() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const name = document.getElementById("name").value;
+            try {
+                const res = await axios.post("http://localhost:3001/signup", {
+                    email: email,
+                    password: password,
+                    name: name
+                })
+                alert("User signed up!!")
+            } catch (err) {
+                alert("User already signed up! use diff email");
+            }
+            
+            // catch (err) {
+            //     console.log(err);
+            // }
+        }
+    </script>
+    <style>
+        #mainBox {
+            height: 280px;
+            width: 200px;
+            /* background-color: black; */
+            margin-top: 60px;
+            margin-left: 550px;
+            border: 1px solid;
+            padding-left: 65px;
+            box-shadow: 2px 2px 2px rgb(103, 100, 94);
+        }
+
+        #inputs {
+            height: 30%;
+            width: 200px;
+        }
+
+        #button {
+            height: 40px;
+            width: 180px;
+            background-color: rgba(11, 11, 226, 0.665);
+            color: white;
+        }
+
+        #button:hover {
+            background-color: #7d99e8;
+
+        }
+
+        #account {
+            margin-top: 5px;
+            margin-left: 500px;
+            padding-left: 20px;
+            padding-top: 20px;
+            height: 80px;
+            width: 250px;
+
+            display: flex;
+            justify-content: space-around;
+        }
+
+        a {
+            text-decoration: none;
+            padding-top: 20px;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div id="mainBox">
+        <h1>Sign Up</h1>
+        <h3>Sign up to continue</h3>
+        <div id="inputs">
+            <input type="text" placeholder="email" id="email">
+            <input type="text" placeholder="password" id="password">
+            <input type="text" placeholder="name" id="name">
+        </div>
+
+
+        <button id="button" onclick="signUp()">Sign Up</button>
+
+    </div>
+    <div id="account">
+        <h4>Already have an account?</h4>
+        <a href="signIn.html">Sign in</a>
+    </div>
+
+</body>
+
+</html>
